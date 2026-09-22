@@ -1,0 +1,771 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================
+   PANTALLA INICIAL
+========================================= */
+
+.pantalla-inicio {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient( circle at center, #26345e 0%, #111832 45%, #080d24 100% );
+    transition: opacity 1.5s ease, visibility 1.5s ease;
+}
+
+    .pantalla-inicio.ocultar {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+.contenido-inicio {
+    padding: 30px;
+    animation: aparecerInicio 1.5s ease-out forwards;
+}
+
+@keyframes aparecerInicio {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenido-inicio h1 {
+    color: #fff8dc;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+button {
+    border: none;
+    padding: 15px 32px;
+    border-radius: 30px;
+    font-size: 18px;
+    color: #4b3200;
+    background: linear-gradient( 135deg, #fff09a, #ffc928 );
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 202, 40, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 7px 25px rgba(255, 202, 40, 0.55);
+    }
+
+    button:active {
+        transform: scale(0.95);
+    }
+
+
+/* =========================================
+   ESCENA
+========================================= */
+
+.escena {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient( to bottom, #080d24 0%, #111b3d 45%, #263d42 75%, #3b4d28 100% );
+}
+
+
+/* =========================================
+   LUNA
+========================================= */
+
+.luna {
+    position: absolute;
+    top: 10%;
+    right: 15%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fff6c7;
+    box-shadow: 0 0 20px rgba(255, 246, 199, 0.6), 0 0 50px rgba(255, 246, 199, 0.3);
+    opacity: 0;
+}
+
+.escena.iniciar .luna {
+    animation: aparecerLuna 2s ease-out 0.5s forwards;
+}
+
+@keyframes aparecerLuna {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   ESTRELLAS
+========================================= */
+
+.estrellas span {
+    position: absolute;
+    color: #fff9d6;
+    font-size: 18px;
+    opacity: 0;
+}
+
+.escena.iniciar .estrellas span {
+    animation: aparecerEstrella 2s ease-out forwards;
+}
+
+.estrellas span:nth-child(1) {
+    top: 15%;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.estrellas span:nth-child(2) {
+    top: 25%;
+    left: 35%;
+    animation-delay: 1.5s;
+}
+
+.estrellas span:nth-child(3) {
+    top: 12%;
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.estrellas span:nth-child(4) {
+    top: 30%;
+    right: 35%;
+    animation-delay: 1.2s;
+}
+
+.estrellas span:nth-child(5) {
+    top: 20%;
+    right: 20%;
+    animation-delay: 1.8s;
+}
+
+.estrellas span:nth-child(6) {
+    top: 38%;
+    left: 12%;
+    animation-delay: 2.2s;
+}
+
+@keyframes aparecerEstrella {
+
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+}
+
+
+/* =========================================
+   LUCIÉRNAGAS
+========================================= */
+
+.luciernagas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 2s ease 3s;
+}
+
+.escena.iniciar .luciernagas {
+    opacity: 1;
+}
+
+.luciernagas span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff3a3;
+    box-shadow: 0 0 6px #ffe66d, 0 0 12px rgba(255, 230, 109, 0.7);
+    opacity: 0;
+}
+
+    .luciernagas span:nth-child(1) {
+        left: 12%;
+        bottom: 25%;
+    }
+
+    .luciernagas span:nth-child(2) {
+        left: 22%;
+        bottom: 40%;
+    }
+
+    .luciernagas span:nth-child(3) {
+        left: 32%;
+        bottom: 20%;
+    }
+
+    .luciernagas span:nth-child(4) {
+        left: 42%;
+        bottom: 35%;
+    }
+
+    .luciernagas span:nth-child(5) {
+        left: 58%;
+        bottom: 28%;
+    }
+
+    .luciernagas span:nth-child(6) {
+        left: 68%;
+        bottom: 45%;
+    }
+
+    .luciernagas span:nth-child(7) {
+        left: 78%;
+        bottom: 25%;
+    }
+
+    .luciernagas span:nth-child(8) {
+        left: 88%;
+        bottom: 38%;
+    }
+
+    .luciernagas span:nth-child(9) {
+        left: 18%;
+        bottom: 55%;
+    }
+
+    .luciernagas span:nth-child(10) {
+        left: 72%;
+        bottom: 58%;
+    }
+
+    .luciernagas span:nth-child(11) {
+        left: 52%;
+        bottom: 50%;
+    }
+
+    .luciernagas span:nth-child(12) {
+        left: 35%;
+        bottom: 60%;
+    }
+
+.escena.iniciar .luciernagas span {
+    animation: flotarLuz 4s ease-in-out infinite;
+}
+
+.luciernagas span:nth-child(1) {
+    animation-delay: 3s;
+}
+
+.luciernagas span:nth-child(2) {
+    animation-delay: 3.5s;
+}
+
+.luciernagas span:nth-child(3) {
+    animation-delay: 4s;
+}
+
+.luciernagas span:nth-child(4) {
+    animation-delay: 4.5s;
+}
+
+.luciernagas span:nth-child(5) {
+    animation-delay: 3.8s;
+}
+
+.luciernagas span:nth-child(6) {
+    animation-delay: 5s;
+}
+
+.luciernagas span:nth-child(7) {
+    animation-delay: 4.2s;
+}
+
+.luciernagas span:nth-child(8) {
+    animation-delay: 5.5s;
+}
+
+.luciernagas span:nth-child(9) {
+    animation-delay: 4.8s;
+}
+
+.luciernagas span:nth-child(10) {
+    animation-delay: 5.2s;
+}
+
+.luciernagas span:nth-child(11) {
+    animation-delay: 6s;
+}
+
+.luciernagas span:nth-child(12) {
+    animation-delay: 5.7s;
+}
+
+@keyframes flotarLuz {
+
+    0% {
+        opacity: 0;
+        transform: translate(0, 20px) scale(0.5);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translate(10px, 0) scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: translate(-5px, -25px) scale(0.8);
+    }
+
+    75% {
+        opacity: 1;
+        transform: translate(8px, -45px) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-5px, -70px) scale(0.4);
+    }
+}
+
+
+/* =========================================
+   SUELO
+========================================= */
+
+.suelo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 18%;
+    background: linear-gradient( to bottom, #1d3014, #101d0b );
+}
+
+
+/* =========================================
+   GIRASOL
+========================================= */
+
+.girasol {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    width: 220px;
+    height: 520px;
+    transform: translateX(-50%);
+}
+
+
+/* =========================================
+   TALLO
+========================================= */
+
+.tallo {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 15px;
+    height: 370px;
+    background: linear-gradient( to right, #285c18, #4d8c25, #285c18 );
+    border-radius: 10px;
+    transform: translateX(-50%) scaleY(0);
+    transform-origin: bottom;
+}
+
+.escena.iniciar .tallo {
+    animation: crecerTallo 3s ease-out forwards;
+}
+
+@keyframes crecerTallo {
+
+    from {
+        transform: translateX(-50%) scaleY(0);
+    }
+
+    to {
+        transform: translateX(-50%) scaleY(1);
+    }
+}
+
+
+/* =========================================
+   HOJAS
+========================================= */
+
+.hoja {
+    position: absolute;
+    width: 105px;
+    height: 50px;
+    background: linear-gradient( 135deg, #65a82e, #2d6919 );
+    border-radius: 100% 0 100% 0;
+    opacity: 0;
+}
+
+.hoja-izquierda {
+    left: 25px;
+    bottom: 180px;
+    transform: rotate(-25deg);
+}
+
+.hoja-derecha {
+    right: 25px;
+    bottom: 110px;
+    transform: rotate(25deg);
+}
+
+.escena.iniciar .hoja-izquierda {
+    animation: aparecerHojaIzquierda 1s ease-out 2.2s forwards;
+}
+
+.escena.iniciar .hoja-derecha {
+    animation: aparecerHojaDerecha 1s ease-out 2.7s forwards;
+}
+
+@keyframes aparecerHojaIzquierda {
+
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(-25deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(-25deg);
+    }
+}
+
+@keyframes aparecerHojaDerecha {
+
+    from {
+        opacity: 0;
+        transform: scale(0) rotate(25deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(25deg);
+    }
+}
+
+
+/* =========================================
+   FLOR
+========================================= */
+
+.flor {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    width: 210px;
+    height: 210px;
+    transform: translateX(-50%) scale(0);
+    transform-origin: center;
+}
+
+.escena.iniciar .flor {
+    animation: aparecerFlor 1.5s ease-out 3s forwards;
+}
+
+@keyframes aparecerFlor {
+
+    from {
+        transform: translateX(-50%) scale(0);
+    }
+
+    to {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+
+/* =========================================
+   PÉTALOS
+========================================= */
+
+.petalo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 100px;
+    background: linear-gradient( to bottom, #fff09a 0%, #ffe05a 35%, #ffc928 70%, #efa800 100% );
+    border: 2px solid #d28d00;
+    border-radius: 50% 50% 45% 45%;
+    transform-origin: center bottom;
+    box-shadow: 0 2px 4px rgba(70, 40, 0, 0.35), inset 0 0 5px rgba(255, 255, 180, 0.35);
+}
+
+.petalo-1 {
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.petalo-2 {
+    transform: translate(-50%, -100%) rotate(30deg);
+}
+
+.petalo-3 {
+    transform: translate(-50%, -100%) rotate(60deg);
+}
+
+.petalo-4 {
+    transform: translate(-50%, -100%) rotate(90deg);
+}
+
+.petalo-5 {
+    transform: translate(-50%, -100%) rotate(120deg);
+}
+
+.petalo-6 {
+    transform: translate(-50%, -100%) rotate(150deg);
+}
+
+.petalo-7 {
+    transform: translate(-50%, -100%) rotate(180deg);
+}
+
+.petalo-8 {
+    transform: translate(-50%, -100%) rotate(210deg);
+}
+
+.petalo-9 {
+    transform: translate(-50%, -100%) rotate(240deg);
+}
+
+.petalo-10 {
+    transform: translate(-50%, -100%) rotate(270deg);
+}
+
+.petalo-11 {
+    transform: translate(-50%, -100%) rotate(300deg);
+}
+
+.petalo-12 {
+    transform: translate(-50%, -100%) rotate(330deg);
+}
+
+
+/* =========================================
+   CENTRO
+========================================= */
+
+.centro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 78px;
+    height: 78px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient( circle, #9a560c 0%, #653007 60%, #3e1d04 100% );
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.semilla {
+    position: absolute;
+    width: 6px;
+    height: 9px;
+    background: #241103;
+    border-radius: 50%;
+}
+
+.semilla-1 {
+    top: 15px;
+    left: 35px;
+}
+
+.semilla-2 {
+    top: 25px;
+    left: 52px;
+}
+
+.semilla-3 {
+    top: 40px;
+    left: 18px;
+}
+
+.semilla-4 {
+    top: 48px;
+    left: 40px;
+}
+
+.semilla-5 {
+    top: 18px;
+    left: 20px;
+}
+
+.semilla-6 {
+    top: 52px;
+    left: 55px;
+}
+
+.semilla-7 {
+    top: 38px;
+    left: 55px;
+}
+
+.semilla-8 {
+    top: 58px;
+    left: 30px;
+}
+
+
+/* =========================================
+   MENSAJE
+========================================= */
+
+.mensaje-final {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    width: 90%;
+    max-width: 650px;
+    transform: translateX(-50%) translateY(30px);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    color: #fff8dc;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+    .mensaje-final.mostrar {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .mensaje-final p {
+        font-size: 18px;
+        line-height: 1.55;
+        margin-bottom: 15px;
+    }
+
+#botonFinal {
+    margin-top: 10px;
+}
+
+
+/* =========================================
+   PANTALLA FINAL
+========================================= */
+
+.pantalla-final {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: radial-gradient( circle at center, #26345e 0%, #111832 45%, #080d24 100% );
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease, visibility 2s ease;
+}
+
+    .pantalla-final.mostrar {
+        opacity: 1;
+        visibility: visible;
+    }
+
+.contenido-final {
+    width: 90%;
+    max-width: 650px;
+    transform: translateY(25px);
+    opacity: 0;
+    transition: opacity 2s ease 1s, transform 2s ease 1s;
+}
+
+.pantalla-final.mostrar .contenido-final {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contenido-final p {
+    color: #fff8dc;
+    font-size: 24px;
+    line-height: 1.7;
+    font-weight: normal;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .contenido-inicio h1 {
+        font-size: 27px;
+    }
+
+    .girasol {
+        transform: translateX(-50%) scale(0.78);
+    }
+
+    .mensaje-final {
+        bottom: 3%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+        .mensaje-final p {
+            font-size: 16px;
+            line-height: 1.45;
+            margin-bottom: 11px;
+        }
+
+    .contenido-final p {
+        font-size: 21px;
+        line-height: 1.6;
+    }
+}
+
+.boton-flecha {
+    width: 55px;
+    height: 55px;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}

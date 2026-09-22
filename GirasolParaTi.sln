@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37314.3 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GirasolParaTi", "GirasolParaTi.csproj", "{7EED0667-7537-46E7-B342-EF436B58216A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EED0667-7537-46E7-B342-EF436B58216A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EED0667-7537-46E7-B342-EF436B58216A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EED0667-7537-46E7-B342-EF436B58216A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EED0667-7537-46E7-B342-EF436B58216A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBBE2B67-B860-472F-93F6-9F98D94C16C2}
+	EndGlobalSection
+EndGlobal
